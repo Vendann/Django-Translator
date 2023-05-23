@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Переводчик</title>
+	<link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+</head>
+   <body>
+      <div class="container">
+         <h1 class="mt-5 mb-5" align="center">Переводчик</h1>
+         <form method="POST" action="{% url 'home' %}">
+            {% csrf_token %}
+            <div class="form-row mt-4">
+               <div class="col">
+                  <textarea name="txt" class="form-control" placeholder="Введите текст" rows="5"></textarea>
+               </div>
+               <br>
+               <div class="col">
+                  <select class="form-control" name="lang">
+                     <option selected value="ru,ru">Русский</option>
+                     <option value="en,en-us">Английский</option>
+                     <option value="es,es-es">Испанский</option>
+                     <option value="de,de">Немецкий</option>
+					 <option value="fr,fr">Французский</option>
+					 <option value="pt,pt">Португальский</option>
+					 <option value="zh-cn,zh-cn">Китайский упрощенный</option>
+                  </select>
+               </div>
+            </div>
+            <input type="submit" class="btn btn-primary mt-2" value="Перевести" name="translate">
+			<input type="submit" class="btn btn-primary mt-2" value="Озвучить" name="sound">
+         </form>
+		 <p class="mt-4">{{result}}</p>
+      </div>
+   </body>
+</html>
